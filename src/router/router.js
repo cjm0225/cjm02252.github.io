@@ -4,7 +4,7 @@
  */
 import {useData} from "../composables/data.js"
 import RouterView from "../vue/core/RouterView.vue"
-import {createRouter, createWebHistory} from "vue-router"
+import {createRouter, createWebHistory,createWebHashHistory } from "vue-router"
 
 export function createAppRouter() {
     const data = useData()
