@@ -1,0 +1,48 @@
+{
+    "locales": {
+        "en": {
+            "title": "<span class='text-primary'>Educational</span> Background",
+            "description": "A glimpse into my academic trajectory and accomplishments."
+        },
+        "es": {
+            "title": "Antecedentes <span class='text-primary'>Educativos</span>",
+            "description": "Un vistazo a mi trayectoria académica y logros."
+        },
+        "fr": {
+            "title": "Parcours <span class='text-primary'>Éducatif</span>",
+            "description": "Un aperçu de mon parcours académique et de mes réalisations."
+        },
+        "zh": {
+            "title": "<span class='text-primary'>教育</span> 背景",
+            "description": "一瞥我的学术轨迹和成就。"
+        }
+    },
+    "items": [
+        {
+            "id": "online_course_udacity",
+            "place": "@link{places.udacity}",
+            "period": [
+                "2015/09",
+                "2019/07"
+            ],
+            "locales": {
+                "en": {
+                    "title": "Jia Ying University - Information and Computational Sciences",
+                    "description": "The main courses are basic computer science, numerical computing methods, data mining, optimization theory, computer graphics, c/ C ++ language, java language, android language, javascript language, algorithm and data structure, database application technology, etc."
+                },
+                "es": {
+                    "title": "Certificación en Fundamentos de UX en Línea",
+                    "description": "Inscrito en un programa en línea que abarca conceptos esenciales de UX, incluida la investigación de usuarios, pruebas de usabilidad y arquitectura de la información. Reforzó habilidades en la creación de experiencias digitales intuitivas y amigables para el usuario."
+                },
+                "fr": {
+                    "title": "Certification en Fondamentaux de l'UX en Ligne",
+                    "description": "Inscrit à un programme en ligne couvrant les concepts essentiels de l'UX, y compris la recherche utilisateur, les tests de convivialité et l'architecture de l'information. Renforcé les compétences dans la création d'expériences numériques intuitives et conviviales."
+                },
+                "zh": {
+                    "title": "嘉应大学-信息与计算科学",
+                    "description": "主要学习课程是计算机科学基础、数值计算方法、数据挖掘、最优化理论、计算机图形学、c/c++语言、java语言、android语言、javascript语言,算法与数据结构、数据库应用技术等。"
+                }
+            }
+        }
+    ]
+}
