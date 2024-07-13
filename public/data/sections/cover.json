@@ -1,0 +1,42 @@
+{
+    "locales": {
+        "en": {
+            "welcome": "Welcome to my <span class='text-primary'>Resume!</span>",
+            "welcomeShort": "Welcome!",
+            "bio": "Front-end development As a front-end development engineer with nearly five years of work experience, I have project experience of large-screen visualization /uniapp hybrid development /PC side management background /python+vue3, including one and a half years of large-screen visualization experience and two years of PC side management background experience, I have developed two apk mobile terminal projects and two small program projects."
+        },
+
+        "es": {
+            "welcome": "¡Bienvenido(a) a mi <span class='text-primary'>CV!</span>",
+            "welcomeShort": "¡Saludos!",
+            "bio": "Con 8 años de experiencia como diseñador de UX, destaco en la creación de interfaces centradas en el usuario. Mi pasión por el diseño empático me impulsa a crear experiencias digitales encantadoras e innovadoras. Colaboremos juntos para crear algo extraordinario."
+        },
+
+        "fr": {
+            "welcome": "Bienvenue sur mon <span class='text-primary'>CV</span>!",
+            "welcomeShort": "Bienvenue!",
+            "bio": "Avec 8 ans en tant que designer UX, j'excele dans les interfaces centrées sur l'utilisateur. Ma passion pour le design empathique me pousse à créer des expériences numériques délicieuses et innovantes. Collaborons ensemble pour créer quelque chose d'extraordinaire."
+        },
+
+        "zh": {
+            "welcome": "欢迎来到我的<span class='text-primary'>简历</span>！",
+            "welcomeShort": "欢迎!",
+            "bio": "作为一位将近五年工作经验的前端开发工程师,有大屏可视化/uniapp混合开发/PC端管理后台/python+vue3的项目经验,其中一年半的大屏可视化经验,两年的PC端管理后台经验,开发了两个apk移动端项目和两个小程序项目。"
+        }
+    },
+
+    "items": {
+        "socialCircles": [
+            "@link{profile.contact.instagram}",
+            "@link{profile.contact.facebook}",
+            "@link{profile.contact.linkedin}",
+            "@link{profile.contact.github}"
+        ],
+
+        "contactListItems": [
+            "@link{profile.contact.address}",
+            "@link{profile.contact.email}",
+            "@link{profile.contact.phone}"
+        ]
+    }
+}
