@@ -37,6 +37,7 @@ export function createAppRouter() {
 
     return createRouter({
         history: createWebHistory(import.meta.env.BASE_URL),
+        history: createWebHashHistory(import.meta.env.BASE_URL),
         routes: routeList
     })
 }
