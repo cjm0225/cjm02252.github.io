@@ -176,11 +176,11 @@
                 "locales": {
                     "en": {
                         "title": "Artificial intelligence",
-                        "description": "Explore, learn, and create with AI"
+                        "description": "Use artificial intelligence to explore, learn, create, and create tools that are convenient for you, such as subtitle translation generation tools, image generation, etc"
                     },
                     "zh": {
                         "title": "人工智能",
-                        "description": "使用人工智能探索、学习、创造"
+                        "description": "使用人工智能探索、学习、创造,创造便利自己的工具，例如字幕翻译生成工具，图片生成等"
                     }
                 }
             },
