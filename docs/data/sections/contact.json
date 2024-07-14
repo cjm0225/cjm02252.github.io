@@ -33,5 +33,10 @@
         "@link{profile.contact.linkedin}",
         "@link{profile.contact.facebook}",
         "@link{profile.contact.instagram}"
+    ],
+    "items": [
+        "@link{profile.contact.address}",
+        "@link{profile.contact.phone}",
+        "@link{profile.contact.email}"
     ]
 }

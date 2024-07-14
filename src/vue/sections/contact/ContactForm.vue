@@ -3,27 +3,30 @@
         <div class="row contact-form-row align-items-stretch">
             <!-- Feedback Alert -->
             <div class="col-12 mb-1" v-if="alertStatus">
-                <Alert :type="alertStatus.type" :message="alertStatus.message"/>
+                <Alert :type="alertStatus.type" :message="alertStatus.message" />
             </div>
 
             <!-- Left Column -->
             <div class="col-xl-6">
                 <!-- Name Input -->
                 <div class="form-group input-group">
-                    <span class="input-group-text input-group-attach"><i class="fa fa-signature"/></span>
-                    <input class="form-control" id="form-name" type="text" :placeholder="data.getString('name') + ' *'" required/>
+                    <span class="input-group-text input-group-attach"><i class="fa fa-signature" /></span>
+                    <input class="form-control" id="form-name" type="text" :placeholder="data.getString('name') + ' *'"
+                        required />
                 </div>
 
                 <!-- E-mail Address Input -->
                 <div class="form-group input-group">
-                    <span class="input-group-text input-group-attach"><i class="fa fa-envelope"/></span>
-                    <input class="form-control" id="form-email" type="email" :placeholder="data.getString('email') + ' *'" required/>
+                    <span class="input-group-text input-group-attach"><i class="fa fa-envelope" /></span>
+                    <input class="form-control" id="form-email" type="email"
+                        :placeholder="data.getString('email') + ' *'" required />
                 </div>
 
                 <!-- Subject Input -->
                 <div class="form-group input-group">
-                    <span class="input-group-text input-group-attach"><i class="fa fa-pen-to-square"/></span>
-                    <input class="form-control" id="form-subject" type="text" :placeholder="data.getString('subject') + ' *'" required/>
+                    <span class="input-group-text input-group-attach"><i class="fa fa-pen-to-square" /></span>
+                    <input class="form-control" id="form-subject" type="text"
+                        :placeholder="data.getString('subject') + ' *'" required />
                 </div>
             </div>
 
@@ -31,14 +34,16 @@
             <div class="col-xl-6">
                 <!-- Message TextArea -->
                 <div class="form-group form-group-textarea mb-md-0">
-                    <textarea class="form-control" id="form-message" :placeholder="data.getString('message')" required/>
+                    <textarea class="form-control" id="form-message" :placeholder="data.getString('message')"
+                        required />
                 </div>
             </div>
 
             <!-- Bottom Column -->
             <div class="col-12 text-center mt-3 mt-lg-4">
-                <button class="btn btn-primary btn-xl" type="submit" id="btn-submit-message" :class="{disabled: submitStatus === SubmitStatus.SENDING}">
-                    <i class="fa fa-envelope me-1"/> {{ data.getString('sendMessage') }}
+                <button class="btn btn-primary btn-xl" type="submit" id="btn-submit-message"
+                    :class="{ disabled: submitStatus === SubmitStatus.SENDING }">
+                    <i class="fa fa-envelope me-1" /> {{ data.getString('sendMessage') }}
                 </button>
             </div>
         </div>
@@ -46,10 +51,10 @@
 </template>
 
 <script setup>
-import {useData} from "../../../composables/data.js"
-import {useLayout} from "../../../composables/layout.js"
-import {computed, onMounted, ref} from "vue"
-import {useNavigation} from "../../../composables/navigation.js"
+import { useData } from "../../../composables/data.js"
+import { useLayout } from "../../../composables/layout.js"
+import { computed, onMounted, ref } from "vue"
+import { useNavigation } from "../../../composables/navigation.js"
 import Alert from "../../widgets/Alert.vue"
 
 const data = useData()
@@ -125,28 +130,33 @@ const _onSubmit = (e) => {
 
     submitStatus.value = SubmitStatus.SENDING
 
-    _sendMessage()
+    _sendMessage(values)
     return false
 }
 
 /**
  * @private
  */
-const _sendMessage = () => {
+const _sendMessage = async (values) => {
     const feedbackView = layout.getFeedbackView()
     feedbackView.showActivitySpinner(data.getString("sendingMessage") + "...")
     submitAttempts++
 
-    /** The message sending logic goes here... **/
-    setTimeout(() => {
-        if(submitAttempts % 2 !== 0) {
-            _onMessageSent()
-        }
-        else {
-            _onMessageError()
-        }
-    }, 1000)
-    /** ************************************** **/
+    fetch("http://127.0.0.1:8888/fileapi/sendEmail", {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: JSON.stringify(values), // body data type must match "Content-Type" header
+    }).then(() => {
+        _onMessageSent()
+    }).catch(() => {
+        _onMessageError()
+    })
+
+
+
 }
 
 /**
@@ -158,7 +168,7 @@ const _onMessageSent = () => {
 
     _clearAllFields()
     submitStatus.value = SubmitStatus.SENT
-    if(navigation.isOneAtOnceMode()) {
+    if (navigation.isOneAtOnceMode()) {
         layout.instantScrollTo(0, false)
     }
 }
@@ -179,9 +189,9 @@ const _onMessageError = () => {
 const alertStatus = computed(() => {
     switch (submitStatus.value) {
         case SubmitStatus.SENT:
-            return {type: 'success', message: data.getString('messageSent')}
+            return { type: 'success', message: data.getString('messageSent') }
         case SubmitStatus.ERROR:
-            return {type: 'danger', message: data.getString('messageError')}
+            return { type: 'danger', message: data.getString('messageError') }
         default:
             return null
     }
@@ -192,7 +202,7 @@ const alertStatus = computed(() => {
 @import "/src/scss/_theming.scss";
 
 $form-input-background-color: lighten($light-3, 20%);
-$form-input-placeholder-color:$light-5;
+$form-input-placeholder-color: $light-5;
 
 $form-input-border-color: $light-2;
 $form-input-border-color-focus: lighten($primary, 5%);
@@ -216,10 +226,8 @@ textarea {
 }
 
 .input-group {
-    @include generate-dynamic-styles-with-hash((
-        xxxl: (margin-bottom: 0.8rem),
-        sm:   (margin-bottom: 0.4rem)
-    ));
+    @include generate-dynamic-styles-with-hash((xxxl: (margin-bottom: 0.8rem),
+            sm: (margin-bottom: 0.4rem)));
 
     border: 2px solid $form-input-border-color;
 }
@@ -240,29 +248,24 @@ textarea {
 }
 
 input {
-    @include generate-dynamic-styles-with-hash((
-        xxxl: (height: auto),
-        xl:   (height: max(50px, 6.5vh)),
-        lg:   (height: max(40px, 4.5vh)),
-        sm:   (height: 40px, font-size: 0.8rem),
-    ))
+    @include generate-dynamic-styles-with-hash((xxxl: (height: auto),
+            xl: (height: max(50px, 6.5vh)),
+            lg: (height: max(40px, 4.5vh)),
+            sm: (height: 40px, font-size: 0.8rem),
+        ))
 }
 
 textarea {
-    @include generate-dynamic-styles-with-hash((
-        xxxl: (height: 218px),
-        lg:   (height: 200px),
-        sm:   (height: 150px, font-size: 0.8rem)
-    ));
+    @include generate-dynamic-styles-with-hash((xxxl: (height: 218px),
+            lg: (height: 200px),
+            sm: (height: 150px, font-size: 0.8rem)));
 
     border: 2px solid $form-input-border-color;
 }
 
 ::-webkit-input-placeholder {
-    @include generate-dynamic-styles-with-hash((
-        xxxl: (font-size: 1.1rem),
-        lg:   (font-size: 0.9rem)
-    ));
+    @include generate-dynamic-styles-with-hash((xxxl: (font-size: 1.1rem),
+            lg: (font-size: 0.9rem)));
 
     font-family: $headings-font-family;
     color: $light-5;
