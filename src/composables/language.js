@@ -78,6 +78,9 @@ export function useLanguage() {
     const selectLanguage = (language) => {
         _languageData.selectedLanguage = language
         window.localStorage.setItem(constants.LOCAL_STORAGE_ITEMS.language, language['id'])
+
+        // 在修改语言的时候，将网页标题修改
+        document.title = data.getString('title');
     }
 
     /**

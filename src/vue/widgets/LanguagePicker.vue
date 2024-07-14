@@ -72,10 +72,6 @@ const _onLanguageSelected = (lang) => {
 
     setTimeout(() => {
         language.selectLanguage(lang)
-
-        // 在修改语言的时候，将网页标题修改
-        document.title = data.getString('title');
-        
         feedbackView.hideActivitySpinner()
     }, 300)
 }
