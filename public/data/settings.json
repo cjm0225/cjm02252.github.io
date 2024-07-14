@@ -26,13 +26,13 @@
         {
             "name": "English",
             "id": "en",
-            "flagUrl": "images/flags/en.png",
-            "default": true
+            "flagUrl": "images/flags/en.png"
         },
         {
             "name": "中文",
             "id": "zh",
-            "flagUrl": "images/flags/zh.png"
+            "flagUrl": "images/flags/zh.png",
+            "default": true
         }
     ],
     "preloaderEnabled": true,

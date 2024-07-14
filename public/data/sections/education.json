@@ -22,6 +22,32 @@
             "id": "online_course_udacity",
             "place": "@link{places.udacity}",
             "period": [
+                "2019/07",
+                "2024/07"
+            ],
+            "locales": {
+                "en": {
+                    "title": "Jia Ying University - Information and Computational Sciences",
+                    "description": "The main courses are basic computer science, numerical computing methods, data mining, optimization theory, computer graphics, c/ C ++ language, java language, android language, javascript language, algorithm and data structure, database application technology, etc."
+                },
+                "es": {
+                    "title": "Certificación en Fundamentos de UX en Línea",
+                    "description": "Inscrito en un programa en línea que abarca conceptos esenciales de UX, incluida la investigación de usuarios, pruebas de usabilidad y arquitectura de la información. Reforzó habilidades en la creación de experiencias digitales intuitivas y amigables para el usuario."
+                },
+                "fr": {
+                    "title": "Certification en Fondamentaux de l'UX en Ligne",
+                    "description": "Inscrit à un programme en ligne couvrant les concepts essentiels de l'UX, y compris la recherche utilisateur, les tests de convivialité et l'architecture de l'information. Renforcé les compétences dans la création d'expériences numériques intuitives et conviviales."
+                },
+                "zh": {
+                    "title": "工作期间的学习",
+                    "description": "1、阅读了《ECMAScript 6 入门教程》《JavaScript 教程》《你不知道的js》《JavaScript高级程序设计（第三版）。2、因为工作需要，也学习了python语法基础，开发了网页数据爬虫的整套流程，交付了两个桌面端爬虫工具。3、英语持续学习，爱阅读app的高中级别文档流畅阅读。"
+                }
+            }
+        },
+        {
+            "id": "online_course_udacity",
+            "place": "@link{places.udacity}",
+            "period": [
                 "2015/09",
                 "2019/07"
             ],
