@@ -4,7 +4,9 @@
  */
 import { reactive } from "vue"
 import { useConstants } from "./constants.js"
+import { useData } from './data.js'
 
+const data = useData()
 const constants = useConstants()
 
 /**

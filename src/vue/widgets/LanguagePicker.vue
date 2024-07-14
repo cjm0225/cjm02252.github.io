@@ -5,13 +5,12 @@
             <!-- Dropdown Toggle Button -->
             <button class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <!-- Selected Flag Icon -->
-                <img :alt="selectedLanguage['name']"
-                     :src="selectedLanguage['flagUrl']"
-                     class="img-fluid img-selected-language-flag">
+                <img :alt="selectedLanguage['name']" :src="selectedLanguage['flagUrl']"
+                    class="img-fluid img-selected-language-flag">
 
                 <!-- Selected Language Name -->
                 <span class="dropdown-item-label d-none d-lg-inline" v-if="props.displayLanguageLabel">
-                    {{selectedLanguage['name']}}
+                    {{ selectedLanguage['name'] }}
                 </span>
             </button>
 
@@ -21,13 +20,11 @@
                 <li v-for="lang in availableLanguages">
                     <button class="dropdown-item" @click="_onLanguageSelected(lang)">
                         <!-- Language Flag Icon -->
-                        <img :alt="lang['name']"
-                             :src="lang['flagUrl']"
-                             class="img-fluid img-language-flag">
+                        <img :alt="lang['name']" :src="lang['flagUrl']" class="img-fluid img-language-flag">
 
                         <!-- Language Name -->
                         <span class="dropdown-item-label">
-                            {{lang['name']}}
+                            {{ lang['name'] }}
                         </span>
                     </button>
                 </li>
@@ -38,17 +35,17 @@
 
 <script setup>
 import Dropdown from '/node_modules/bootstrap/js/src/dropdown'
-import {useLanguage} from "../../composables/language.js"
-import {computed} from "vue"
-import {useLayout} from "../../composables/layout.js"
-import {useData} from "../../composables/data.js"
+import { useLanguage } from "../../composables/language.js"
+import { computed } from "vue"
+import { useLayout } from "../../composables/layout.js"
+import { useData } from "../../composables/data.js"
 
 const data = useData()
 const language = useLanguage()
 const layout = useLayout()
 
 const props = defineProps({
-    displayLanguageLabel:Boolean
+    displayLanguageLabel: Boolean
 })
 
 /**
@@ -75,6 +72,10 @@ const _onLanguageSelected = (lang) => {
 
     setTimeout(() => {
         language.selectLanguage(lang)
+
+        // 在修改语言的时候，将网页标题修改
+        document.title = data.getString('title');
+        
         feedbackView.hideActivitySpinner()
     }, 300)
 }
@@ -83,9 +84,9 @@ const _onLanguageSelected = (lang) => {
 <style lang="scss" scoped>
 @import "/src/scss/_theming.scss";
 
-$menu-background-color:lighten($nav-background-color, 5%);
-$menu-border-color:darken($nav-background-color, 1%);
-$menu-hover-background-color:lighten($nav-background-color, 10%);
+$menu-background-color: lighten($nav-background-color, 5%);
+$menu-border-color: darken($nav-background-color, 1%);
+$menu-hover-background-color: lighten($nav-background-color, 10%);
 
 .dropdown-toggle {
     border-width: 0;
